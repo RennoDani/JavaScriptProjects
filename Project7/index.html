@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS array</title>
+</head>
+
+<body>
+
+
+</body>
+
+<script>
+
+    const people = [
+        { name: 'Vivs', year: 1985 },
+        { name: 'Raf', year: 1991 },
+        { name: 'Vin', year: 1989 },
+        { name: 'Beth', year: 1955 },
+        { name: 'Eva', year: 1962 }
+    ];
+
+    const comments = [
+        { text: 'Love this', id: 123123 },
+        { text: 'Super good', id: 193755 },
+        { text: 'You are the best', id: 147258 },
+        { text: 'Ramen is your fav food ever', id: 164978 },
+        { text: 'Nice nice nice', id: 135791 }
+    ];
+
+    //some
+    const isAdult = people.some(person => ((new Date()).getFullYear()) - person.year >= 19);
+    console.log({isAdult});
+    //console.log((new Date()).getFullYear());
+
+
+    //every
+    const allAdult = people.every(person => ((new Date()).getFullYear()) - person.year >= 40);
+    console.log({allAdult});
+
+
+    //find
+    const comment = comments.find(comm => comm.id === 193755);
+    console.log(comment);
+
+
+    //findIndex | splice to delete
+    const index = comments.findIndex(comm => comm.id === 147258);
+    console.log(index);
+
+    // comments.splice(index, 1);
+    console.log(comments);
+
+    const newComments = [
+        ...comments.slice(0,index),
+        ...comments.slice(index+1)
+    ];
+
+    console.log(newComments);
+
+
+
+</script>
+
+</html>
